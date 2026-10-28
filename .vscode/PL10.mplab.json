@@ -1,0 +1,81 @@
+{
+    "version": "1.9",
+    "configurations": [
+        {
+            "name": "default",
+            "id": "conf1",
+            "device": "PIC32CM6408PL10048",
+            "imagePath": "./out/PL10/default.elf",
+            "tool": "PKOB nano",
+            "packs": [
+                {
+                    "name": "PIC32CM-PL_DFP",
+                    "vendor": "Microchip",
+                    "version": "1.5.437"
+                },
+                {
+                    "name": "CMSIS",
+                    "vendor": "ARM",
+                    "version": "6.3.0"
+                }
+            ],
+            "fileSet": "default",
+            "toolchain": "default-XC32"
+        }
+    ],
+    "propertyGroups": [
+        {
+            "name": "default-XC32",
+            "type": "toolchain",
+            "provider": "microchip.toolchains:xc32@5.10",
+            "properties": {
+                "linker.heap-size": "512",
+                "compiler.extra-include-directories": [
+                    "my_mcc/src",
+                    "my_mcc/src/config/default",
+                    "my_mcc/src/packs/CMSIS",
+                    "my_mcc/src/packs/CMSIS/CMSIS/Core/Include",
+                    "my_mcc/src/packs/PIC32CM6408PL10048_DFP"
+                ],
+                "compiler++.extra-include-directories": [
+                    "my_mcc/src",
+                    "my_mcc/src/config/default",
+                    "my_mcc/src/packs/CMSIS",
+                    "my_mcc/src/packs/CMSIS/CMSIS/Core/Include",
+                    "my_mcc/src/packs/PIC32CM6408PL10048_DFP"
+                ],
+                "linker.no-device-startup-code": "true",
+                "compiler.isolate-each-function": "true",
+                "compiler.optimization-level": "-O1",
+                "compiler.place-data-into-section": "true",
+                "linker.remove-unused-sections": "true",
+                "compiler++.isolate-each-function": "true",
+                "compiler++.optimization-level": "-O1"
+            }
+        }
+    ],
+    "fileSets": [
+        {
+            "name": "default",
+            "files": [
+                {
+                    "include": "**/*",
+                    "exclude": "**/@(build|_build|out|cmake|.vscode)/**/*"
+                },
+                "my_mcc/src/config/default/peripheral/evsys/plib_evsys.c",
+                "my_mcc/src/main.c",
+                "my_mcc/src/config/default/initialization.c",
+                "my_mcc/src/config/default/interrupts.c",
+                "my_mcc/src/config/default/exceptions.c",
+                "my_mcc/src/config/default/PIC32CM6408PL10048.ld",
+                "my_mcc/src/config/default/stdio/xc32_monitor.c",
+                "my_mcc/src/config/default/peripheral/port/plib_port.c",
+                "my_mcc/src/config/default/peripheral/clock/plib_clock.c",
+                "my_mcc/src/config/default/peripheral/nvic/plib_nvic.c",
+                "my_mcc/src/config/default/startup_xc32.c",
+                "my_mcc/src/config/default/libc_syscalls.c",
+                "my_mcc/src/config/default/peripheral/eic/plib_eic.c"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "agent": {
+    "microchip-firmware-engineer": {
+      "mode": "primary",
+      "description": "microchip firmware engineer",
+      "prompt": "{file:C:/Users/c74305/Desktop/MAICA/Working_demo/maica_workflow-backup/.mplab-ai/Agents/microchip-firmware-engineer.md}",
+      "model": "microchip-internal/claude-sonnet-4-6",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "bash": "allow"
+      } 
+    },
+    "document-agent": {
+      "mode": "primary",
+      "description": "Modifys readme files for project. using mchp template.",
+      "prompt": "{file:C:/Users/c74305/Desktop/MAICA/Working_demo/maica_workflow-backup/.mplab-ai/Agents/document-agent.md}",
+      "model": "microchip-internal/claude-sonnet-4-6",
+      "permission": {
+        "edit": "deny",
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "bash": "allow"
+      } 
+    }
+  }
+}
