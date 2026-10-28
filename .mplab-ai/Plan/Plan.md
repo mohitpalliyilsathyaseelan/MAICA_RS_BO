@@ -88,6 +88,7 @@ appData.state = APP_STATE_IDLE;
 | \my_mcc/src/gpio.c\ | ✓ CREATED — GPIO module source; PB02 PLIB wrappers |
 | \my_mcc/src/app.h\ | ✓ DONE — `#include "gpio.h"` included; updated states |
 | \my_mcc/src/app.c\ | ✓ DONE — `GPIO_Initialize()`, `EIC_CallbackRegister(EIC_PIN_3, …)`, `EIC_InterruptEnable(EIC_PIN_3)` active |
+| \my_mcc/src/main.c\ | ✓ FIXED — calls `APP_Initialize()` once and `APP_Tasks()` in the super-loop. Required because this is a PLIB-only project: `SYS_Initialize()` does not call the app layer and `SYS_Tasks()` is an empty macro |
 
 
 ## Build & Verify
